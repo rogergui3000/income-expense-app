@@ -25,8 +25,8 @@
  ![alt tag](https://github.com/rogergui3000/income-expense-app/blob/master/register.png)
  ![alt tag](https://github.com/rogergui3000/income-expense-app/blob/master/account.png)
  ![alt tag](https://github.com/rogergui3000/income-expense-app/blob/master/Cathegory.png)
- ![alt tag](https://github.com/rogergui3000/income-expense-app/master/Transaction.png)
- ![alt tag](https://github.com/rogergui3000/income-expense-app/master/income.png)
+ ![alt tag](https://github.com/rogergui3000/income-expense-app/master/Tansaction.png)
+ ![alt tag](https://github.com/rogergui3000/income-expense-app/master/Income.png)
 
 
  ## Missing Tests
