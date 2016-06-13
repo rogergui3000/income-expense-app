@@ -20,13 +20,13 @@
  6. Start the client go to ngclient/ngClient in the command line then hit: `$ node client`
  7. Go to : http://localhost:8081/
 
-ScreenSHoot
-![alt tag](https://github.com/rogergui3000/income-expense-app/master/login.png)
-![alt tag](https://github.com/rogergui3000/income-expense-app/master/register.png)
-![alt tag](https://github.com/rogergui3000/income-expense-app/master/account.png)
-![alt tag](https://github.com/rogergui3000/income-expense-app/master/Cathegory.png)
-![alt tag](https://github.com/rogergui3000/income-expense-app/master/Transaction.png)
-![alt tag](https://github.com/rogergui3000/income-expense-app/master/income.png)
+
+ ![alt tag](https://github.com/rogergui3000/income-expense-app/blob/master/login.png)
+ ![alt tag](https://github.com/rogergui3000/income-expense-app/blob/master/register.png)
+ ![alt tag](https://github.com/rogergui3000/income-expense-app/blob/master/account.png)
+ ![alt tag](https://github.com/rogergui3000/income-expense-app/blob/master/Cathegory.png)
+ ![alt tag](https://github.com/rogergui3000/income-expense-app/master/Transaction.png)
+ ![alt tag](https://github.com/rogergui3000/income-expense-app/master/income.png)
 
 
  ## Missing Tests
