@@ -1,0 +1,121 @@
+<div class="page_holder_modal user-select_modal_holder">
+	<div class="page_wrapper_modal">
+		<div class="page_header_modal user-select_modal"></div>
+	</div>
+</div>
+
+<div class="page_holder_modal page_menu_holder">
+	<div id="page_overlay" class="page_overlay" style="height: 100%;"></div>
+	<div class="page_wrapper_modal">
+	<div class="page_header_modal">
+	<figure class="page_header__logo blur-out">
+		<a class="page_header__logo_image" href="#"></a>
+	</figure>
+	<div id="main-menu_button" class="main-menu_button blur-out">
+		<span class="main-menu_button__item main-menu_button__item-1"></span>
+		<span class="main-menu_button__item main-menu_button__item-2"></span>
+	</div>
+		<div class="page_header__navigation blur-out">
+    <ul class="page_header__nav">
+	 <li class="page_header__nav_item">
+						<a class="page_header__nav_link top_inline_menu_item1" href="#">Calculators</a>
+					</li>
+			 <li class="page_header__nav_item">
+						<a class="page_header__nav_link top_inline_menu_item2" href="#">Testimonials</a>
+			</li>
+			<li class="page_header__nav_item">
+						<a class="page_header__nav_link top_inline_menu_item3" href="#">Contacts</a>
+			</li>
+			
+		 </ul>
+</div>
+	<article id="page_header__auth" class="page_header__auth">
+
+<div id="page_header__auth_button" class="page_header__auth_button" style="">
+	<span class="page_header__auth_button__icon page_header__auth_button__icon-lock icon icon-user-select-lock-white"></span><div class="page_header__auth_button__text">Sign in</div>
+</div>
+<div class="page_header__auth__trial"><a class="page_header__auth__trial_link" href="#/register">Free Registration </a></div>
+<div id="form_auth" class="form form_auth">
+
+<!--</form>-->
+</div>
+	</article>
+	</div>
+
+		<main class="page_feature blur-out">
+			<div class="page_wrapper__inner page_feature__inner">
+				<article id="feature" class="feature">
+					<section class="feature__wrapper feature__wrapper-3 position_bottom active" style="opacity: 1;">
+						<p class="feature__description feature__description_top">Only 1 in 10 Income and Expenses App <br> can influence the outcome of your income</p>
+						<div class="feature__header">Digital </div>
+						<div class="feature__header_sub">Income and Expenses Application</div>
+						<div class="feature__header-wrapper">
+														<div class="feature__header_main"><!--TODO TRANSLATE CSS-->Will improve <br> your Saving</div>
+						</div>
+						<p class="feature__description feature__description_bottom">Digital Income and Expenses Application, the unique function of PortalChart, allows to use many online communication tools to manage your Saving.</p>
+					</section>
+
+					<div class="feature__swipe-block"></div>
+				</article>
+
+				<div class="page_feature__aside">
+					
+<form  id="form_start" class="form form_start" name="loginForm" ng-submit="signin()" novalidate>
+				<div ng-class="{ 'form-main-error-wrap help-block': error, 'alert-danger': error === 'true' }"  ng-if="error" ng-bind="error"></div>
+	<div class="form_start_step_one form_start">
+	 <div class="form_start__type_box">
+		 <input type="email" name="email" id="form_start__type_name" placeholder="Email" class="form_start__type form_start__type_name" ng-model="email"   ng-maxlength="45" required/>
+		<span class="form_start__type_name_error" ng-show="loginForm.email.$invalid && !loginForm.email.$pristine ">You enter an invalid email.</span>
+		
+	</div>
+	<div class="form_start__type_box">
+		<input type="password" name="password" id="form_start__type_email" placeholder="Password" class="form_start__type form_start__type_email" ng-minlength="3"  ng-maxlength="16" ng-model="password" ng-disabled="loginForm.email.$invalid" required/>
+		<span class="form_start__type_email_error" ng-show="loginForm.password.$invalid && !loginForm.password.$pristine && loginForm.password.$error.minlength">Password is too short</span>
+		<span class="form_start__type_email_error" ng-show="loginForm.password.$invalid && !loginForm.password.$pristine && loginForm.password.$error.maxlength">Password is too long</span>
+		<span class="form_start__type_email_error" ng-show="loginForm.password.$dirty && loginForm.password.$error.required">Password is too long</span>
+	</div>
+	<button type="submit" id="form_start__button_submit" class="submit-btn form_start__button form_start__button_submit" ng-disabled="loginForm.$invalid || dataLoading " ><span>  <img ng-if="dataLoading" src="/app-content/images/gif.gif" />Login</span></button>
+   
+	
+	</div>
+</form>
+				</div>
+			</div>
+		</main>
+
+<!--		@TODO FOTTER-->
+		<div class="page_footer_modal blur-out">
+			
+<footer class="page_footer_modal__wrapper">
+	<div class="page_footer_modal__inner wrapper-footer selectable">
+<footer class="page_footer_modal__wrapper">
+	<div class="page_footer_modal__inner wrapper-footer selectable">
+		<ul class="page_footer__contacts">
+			<li class="page_footer__contacts__item page_footer__contacts__item-phone"><a class="page_footer__contacts__item_link page_footer__contacts__item_link-tel" href="#/x/privacy">Privacy Policy </a></li>
+			<li class="page_footer__contacts__item page_footer__contacts__item-phone"><a class="page_footer__contacts__item_link page_footer__contacts__item_link-tel" href="#/x/privacy">Term of Use </a></li>
+			<li class="page_footer__contacts__item page_footer__contacts__item-phone"><i class="page_footer__contacts__item_link page_footer__contacts__item_link-tel"> &#x26; </i></li>
+			<li class="page_footer__contacts__item page_footer__contacts__item-phone"><a class="page_footer__contacts__item_link page_footer__contacts__item_link-tel" href="#/x/support"> Support</a></li>
+			<li class="page_footer__contacts__item page_footer__contacts__item-mailto"><a class="page_footer__contacts__item_link" href="mailto:rogergui3000@gmail.com" target="_top">rogergui3000@gmail.com</a></li>
+		</ul>
+		
+</footer>
+	</div>
+</footer>
+		</div>
+	</div>
+</div>
+
+<div class="page_holder page_holder_bg blur-out">
+	<section id="slider_background" class="slider slider_background">
+		<div class="slider_background__wrapper moveFromBottomFade active" style="opacity: 1;">
+			<div class="slider_background__slide slider_background__slide-4" style="opacity: 1;"></div>
+		</div>
+	</section>
+	</div>
+	<div class="page_holder_modal rectangle_holder">
+		<div class="page_holder__inner">
+			<div class="page_feature_modal blur-out">
+				<div class="background background_rectangle" style="opacity: 1; transform: translate(0px, 0px);"></div>
+			</div>
+		</div>
+</div>

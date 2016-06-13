@@ -1,0 +1,142 @@
+<!-- nav -->
+<div navigation></div>
+
+ <div class="container-fluid" style=" margin-top: 8%;color:black">
+		   	 <modal-dialog show='modalShown' width='50%' height='10%' style="color:black">
+		   	      
+					  
+					  <div class="alert alert-warning" role="alert" ng-if="successMessage ===false ">
+					     <p > {{errorMessage}}<p>
+					  </div>
+	
+					  
+		   	 </modal-dialog>
+
+    
+    <div class="row">
+       <h1>My Transactions</h1>
+      <div class="col-sm-8">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+			Balances as of:  {{ today | date:"MM/dd/yyyy"  }}
+		  <ul class="nav nav-tabs">
+		    <li role="presentation" class="active"><a ng-click="showTheForm = !showTheForm">Add a Transaction</a></li>
+		  
+		  </ul>
+		  
+		  <form name="myForm" ng-show="showTheForm" ng-submit="processForm()">
+			  
+			  <table class="table"><tbody>
+				  <tr>
+					<td>Cathegory<td>
+					<td><select class="form-control text-center" onchange="UpdateCatId(this.value,'1569130')">
+					<option value="">-- Select Category --</option>
+					<option value="465839">Food</option><option value="465818" selected="">General</option><option value="465819">guy</option><option value="">-- More Categories... --</option><option value="-1">Auto</option><option value="-4">Home</option><option value="-7">Investments</option><option value="-8">Income</option><option value="-5">Leisure</option><option value="-6">Miscellaneous</option><option value="-9">Spending</option><option value="-2">Utilities</option>			
+			
+					<option value="add">Add Category</option>
+					</select></td>
+					<td>Amount<td>
+					<td><input type="number" id="shippingAmount"   class="shippingAmount form-control  text-right" model="Amount" name="Amount" value="" required>
+					<span class="error" ng-show="myForm.Amount.$error.required">
+					      Required!</span>
+					    <span class="error" ng-show="myForm.Amount.$error.number">
+					      Not valid number!</span></td>
+    					
+				   </tr>
+				 <tr><td> <button class="noneb  btn btn-success" >Submit</button></td><td><button  class="noneb btn btn-danger" style="" type="button" ng-click="showTheForm = false">Cancel</button></td>
+					 <td colspan="7"></td></tr>
+			  </tbody></table>
+			  
+			  <hr>
+		  </form>
+		  
+          </div>
+          <div class="chart-stage">
+              
+         
+		<table class="table table-hover">
+			<caption >{{ myDetails.created_at | date:"MM/dd/yyyy"  }} -{{ today | date:"MM/dd/yyyy"  }}	- All Account</caption>
+  <thead>
+    <tr>
+      <th>Cash</th>
+    </tr>
+  </thead>
+  <tbody ng-init="account.total = {};accoun.total = {};">
+
+  
+    <tr>
+      <th scope="row">DatePaid</th>
+      <td colspan="1">	</td>
+      <td >Type/Category</td>
+	 <td >Amount</td>
+	 <td >Running Balance</td>
+    </tr>
+    
+    
+    <tr ng-repeat="accoun in account">
+      <th scope="row">{{accoun.day_due}}</th>
+      <td colspan="1">	</td>
+      <td ng-init="account.total.amount = account.total.amount + accoun.total_expense">{{accoun.catname}}</td>
+	 <td >{{accoun.amount | currency:""}}</td>
+	 <td >{{accoun.amount - accoun.total_expense | currency:""}}</td>
+    </tr>
+    
+    <tr ng-repeat="account in accounts">
+      <th scope="row">{{account.day_due}}</th>
+      <td colspan="1">	</td>
+      <td ng-init="accoun.total.amount = accoun.total.amount + account.total_expense">{{account.catname}}</td>
+	 <td >{{account.amount | currency:""}}</td>
+	 <td >{{account.amount - account.total_expense | currency:""}}</td>
+    </tr>
+    
+    <tr>
+      <th scope="row"></th>
+      <td>Total:	{{account.total.amount | currency:"&euro;"}}</td>
+      <td ></td>
+	 <td colspan="2"></td>
+    </tr>
+ 
+  </tbody>
+</table>
+        
+Transactions  Page: 1
+          </div>
+          <div class="chart-notes">
+		 Total Current Balance: $15.00
+		 
+            
+          </div>
+        </div>
+      </div>
+	 
+    </div>
+
+
+	 <table cellpadding="0" cellspacing="0" width="50%">
+	 	<tbody><tr>
+	 	<td>
+	 	<table cellpadding="0" width="100%" cellspacing="0" border="0"><tbody><tr><td colspan="2" id="apps_titlebar1Id" class="apps_titlebar1">Viewable Transaction Summary</td></tr>	<tr>
+	 				<td class="padding3 apps_datarows apps_datarows_left" bgcolor="#F7F89F" nowrap="">Income/Deposits</td>
+	 		<td class="padding3 apps_datarows" bgcolor="#F7F89F"><span class="blackTxt">{{account.total.amount | currency:"&euro;"}}</span></td>
+		
+	 			</tr>
+	 	<tr>
+	 				<td class="padding3 apps_datarows apps_datarows_left" bgcolor="#F9C3B7">Expenses</td>
+	 		<td class="padding3 apps_datarows" bgcolor="#F9C3B7"><span class="blackTxt">{{accoun.total.amount | currency:"&euro;"}}</span></td>
+	 			</tr>
+	 		<tr>
+	 				<td class="padding3 apps_datarows1 apps_datarows_left">Net Total</td>
+	 		<td class="padding3 apps_datarows1"><span class=""><span class="blackTxt">{{account.total.amount - accoun.total.amount | currency:"&euro;"}}</span></span></td>
+	 			</tr>
+	 </tbody></table></td></tr>
+	 </tbody></table>
+	 
+
+		   	
+			 
+<!-- always display cal bottom right cornoer -->
+<div id="bottomrightdi">
+	<calculator></calculator>
+</div>
+
+<script src="//keen_web_static.s3.amazonaws.com/js/bootstrap.min.js?v=1224" type="text/javascript"></script>

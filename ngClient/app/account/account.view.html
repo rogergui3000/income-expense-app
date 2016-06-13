@@ -1,0 +1,120 @@
+<!-- nav -->
+<div navigation></div>
+
+ <div class="container-fluid" style=" margin-top: 8%;color:black">
+
+
+    
+    <div class="row">
+       <h1>My Account</h1>
+      <div class="col-sm-8">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+			Balances as of: {{ today | date:"MM/dd/yyyy"  }}
+			<br>
+			 <button class="noneb  btn btn-primary btn-lg"  ng-click="showTheForm = !showTheForm" >Add Account</button>  
+            
+    		  <form name="myForm" ng-show="showTheForm" ng-submit="processForm()" novalidate>
+			  
+    			  <table class="table"><tbody>
+    				  <tr>
+    					<td>Type<td>
+    					<td><input type="text" name="Types" id="shippingAmount" size="6" maxlength="15" class="shippingAmount form-control  text-center" ng-model="Types"  value="" required><span class="error" ng-show="myForm.Types.$error.required">
+    					      Required!</span></td>
+    					<td>Amount <td>
+    					<td><input type="number" name="Amount" id="shippingAmount"   class="shippingAmount form-control  text-right" ng-model="Amount"  value="" required>
+						
+    					<span class="error" ng-show="myForm.Amount.$error.required && myForm.Amount.$pristine">
+    					      Required!</span>
+    					    <span class="error" ng-show="myForm.Amount.$error.number && myForm.Amount.$pristine">
+    					      Not valid number!</span></td>
+    					<td>Date Due<td>
+    					<td><input type="date" name="duedate" id="shippingAmount"  class="shippingAmount form-control  text-center" ng-model="duedate"  placeholder="yyyy-MM-dd" min="2016-01-01" max="2040-12-31" required>
+    				     <span class="error" ng-show="myForm.duedate.$error.required">
+    				             Required!</span>
+    				         <span class="error hs-error-msgs" ng-show="myForm.duedate.$error.date">
+    				             Not a valid date!</span>
+    				        </div>
+    					</td>
+    				   </tr>
+    				 <tr><td> <button type="submit" class="noneb  btn btn-success" ng-disabled="dataLoading"><img ng-if="dataLoading" src="/app-content/images/gif.gif" />Submit</button></td><td><button  class="noneb btn btn-danger"  type="button" ng-click="showTheForm = false">Cancel</button></td>
+    					 <td colspan="7">{{errorMessage}}</td></tr>
+    			  </tbody></table>
+			  
+    			  <hr>
+    		  </form>
+          <div class="chart-stage">
+            
+		  
+         
+		<table class="table table-hover" >
+			<caption >Money Account</caption>
+  <thead>
+    <tr>
+      <th>Type</th>
+	 <th>Due Day</th>
+	 <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody ng-init="account.total = {}">
+
+
+
+    <tr ng-repeat="accoun in account" >
+    <td >{{accoun.type}}</td>
+    <td >{{accoun.day_due}}</td>
+    <td ng-init="account.total.amount = account.total.amount + accoun.amount">{{accoun.amount}}	</td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>Sub-Total:	</td>
+      <td > {{account.total.amount | currency:" &euro;"}}</td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>Total:	</td>
+      <td >{{account.total.amount | currency:" &euro;"}} </td>
+    </tr>
+ 
+  </tbody>
+</table>
+        
+
+          </div>
+          <div class="chart-notes">
+		  Net Worth: {{account.total.amount | currency:"Euro &euro;"}}
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+        <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Pie Chat Income
+          </div>
+          <div class="chart-stage">
+            <div id="chart-02">
+            	
+			<canvas id="pie" class="chart chart-pie"
+			  chart-data="data" chart-labels="labels">
+			</canvas>
+            </div>
+          </div>
+          <div class="chart-notes">
+            Notes :
+          </div>
+        </div>
+      </div>
+	 
+	 
+<!-- always display cal bottom right cornoer -->
+<div id="bottomrightdi">
+	<calculator></calculator>
+</div>
+
+<script src="//keen_web_static.s3.amazonaws.com/js/bootstrap.min.js?v=1224" type="text/javascript"></script>
+
+

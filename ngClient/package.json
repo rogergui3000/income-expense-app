@@ -1,0 +1,9 @@
+{
+  "name": "portalchartclient",
+  "version": "0.1.0",
+  "dependencies": {
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0",
+    "express": "~4.13.1"
+  }
+}

@@ -1,0 +1,156 @@
+<!-- nav -->
+<div navigation></div>
+	     
+ <div class="container-fluid" style=" margin-top: 8%;color:black">
+<div class="row">
+	 <h1>My Categories</h1>
+      <div class="col-sm-8">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+			Income & Expense as of:  {{ today | date:"MM/dd/yyyy"  }}
+		  	<ul class="nav nav-tabs">
+		    	 	<li role="presentation" class="active"><a >Category Management</a></li>
+		    		<li role="presentation" ><a ng-click="showTheForm = !showTheForm">Add Category </a></li>
+		  	</ul>
+			
+       		  <form name="myForm" ng-show="showTheForm" ng-submit="processForm()" novalidate>
+			  
+       			  <table class="table"><tbody>
+       				  <tr>
+       					<td>Name<td>
+       					<td><input type="text" name="name" id="shippingAmount" size="6" maxlength="15" class="shippingAmount form-control  text-center" ng-model="name"  value="" required><span class="error" ng-show="myForm.name.$error.required">
+       					      Required!</span></td>
+       					
+       					<td>Type<td>
+       					<td><select class="form-control text-center" ng-change="changed()" ng-model="types"
+					    ng-options="data.name for data in options" required></select>
+       					</td>
+       				   </tr>
+       				 <tr><td> <button type="submit" class="noneb  btn btn-success" ng-disabled="dataLoading"><img ng-if="dataLoading" src="/app-content/images/gif.gif" />Submit</button></td><td><button  class="noneb btn btn-danger"  type="button" ng-click="showTheForm = false">Cancel</button></td>
+       					 <td colspan="7">{{errorMessage}}</td></tr>
+       			  </tbody></table>
+			  
+       			 <hr>
+       		  </form>
+			  
+			  
+          </div>
+          <div class="chart-stage">
+            <div id="chart-01"></div>
+          </div>
+          <div class="chart-notes">
+  		<table cellpadding="0" width="100%" style="height:30%; overflow:scoll" cellspacing="0" border="0" class="table table-hover"><tbody>
+			<tr><td colspan="3" id="apps_titlebar1Id" class="apps_titlebar1">Category List</td></tr>	
+			<tr><td class="apps_box">
+  			
+					<table class="white" cellpadding="0" cellspacing="0" width="100%" >
+						<thead>
+						<tr>
+						  	<td class="submenu1 submenu_left">&nbsp;</td>
+						  	<td class="submenu1">Category</td>
+						  	<td class="submenu1">Type</td>
+						  	<td class="submenu1">Action</td>
+						  	<td class="submenu1"></td>
+						 </tr>
+						 <thead>
+  						<tbody style="height:15px; overflow:scroll">
+						
+  							<tr ng-repeat="accoun in account">
+								<td nowrap="" width="1%" class="white padding3 gboxb apps_boxl categoryRow lightcolorid3">
+								<input name="subcategory_1569126" type="checkbox">
+								</td>
+								<td nowrap="" class="white categoryRow padding3 gboxb lightcolorid3" >
+								{{accoun.catname}}
+								</td>	
+								<td ng-if="accoun.type === 1"> Expense</td>
+								<td ng-if="accoun.type === 2"> Income</td>
+								<td ng-if="accoun.type === 3 "> Uncathegorize</td>
+  								<td class="white padding3 gboxb apps_boxr categoryRow lightcolorid3">
+			   				   &nbsp;&nbsp; <a class="smallTxt" ng-click="DelCathFunc(accoun.id)">Remove</a>
+		         		   			</td>
+		    			 		</tr>				
+  					</tbody></table>
+				 
+    		   		</td>
+		 	</tr>
+  		</tbody></table>
+     
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Cathegory Summary
+          </div>
+          <div class="chart-stage">
+            <div id="chart-02">
+		     <table >
+		       <tr ng-repeat="accoun in account" >
+		       <td >{{accoun.catname}}</td>
+		       </tr>
+		     </table>
+			
+            </div>
+          </div>
+          <div class="chart-notes">
+	     
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+           Income 
+          </div>
+          <div class="chart-stage">
+            <div id="chart-03" style="width: 400px; height: 200px;" >
+			<canvas id="doughnut" class="chart chart-doughnut"
+			  chart-data="datas" chart-labels="labelss" >
+			</canvas>
+            </div>
+          </div>
+          <div class="chart-notes">
+            Notes : Income By Cathegory
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Expense
+          </div>
+          <div class="chart-stage">
+            <div id="chart-04" style="width: 400px; height: 200px;">
+			<canvas id="doughnu" class="chart chart-doughnut"
+			  chart-data="data" chart-labels="labels">
+			</canvas>
+            </div>
+          </div>
+          <div class="chart-notes">
+            Notes : Expense By Cathegory
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    
+   
+
+<!-- always display cal bottom right cornoer -->
+<div id="bottomrightdi">
+	<calculator></calculator>
+</div>
+
+<script src="//keen_web_static.s3.amazonaws.com/js/bootstrap.min.js?v=1224" type="text/javascript"></script>

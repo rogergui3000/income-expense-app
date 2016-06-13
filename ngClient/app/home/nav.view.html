@@ -1,0 +1,53 @@
+ <link href="/app-content/css/main.css" rel="stylesheet" type="text/css">
+ <link href="/app-content/css/table.css" rel="stylesheet" type="text/css">
+<header class="navbar navbar-inverse navbar-fixed-top navbarAppGlobal">
+  <div class="container-fluid">
+    <div class="navbar-header"><a href="" class="navbar-brand"><img class="keenIcon" src="/app-content/images/p.png" >
+   </a>
+      <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right navUser">
+        <li class="dropdown "><a  href="#/logout"  class="dropdown-toggle"><img src="https://www.gravatar.com/avatar/be8238701b750f350f4f081cfd8bbf3a?d=mm"/><b id="admin"></b><b >&#x27B2;</b></a>
+          
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-left navHelp">
+        <li><a ng-class="getClass('/home')" href="#/home">Home</a></li>
+        <li><a ng-class="getClass('/account')" href="#/account">My Account</a></li>
+        <li><a ng-class="getClass('/Income')" href="#/Income">My Income</a></li>
+	   <li><a ng-class="getClass('/Cathegories')" href="#/Cathegories">My Cathegories</a></li>
+	           
+      </ul>
+    </div>
+  </div>
+
+  <div class="navbarAppContext">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="pull-left">
+            <ol class="breadcrumb">
+              <li><a > <span my-current-time="format"></span></a></li>
+            
+            </ol>
+          </div>
+          <div class="pull-right">
+<div class="btn-toolbar pull-right">
+  <div class="btn-group"><a  href="#/Budget" ng-class="getClass('/Budget')" class="btn btn-default-outline navbar-btn active">My Budget</a><a href="#/Transaction"  class="btn btn-default-outline navbar-btn " ng-class="getClass('/Transaction')">My Transaction</a>
+  </div>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+// if we have something on local storage place that
+if(localStorage.getItem('name')) {
+	$('#admin').html(localStorage.getItem('name'));
+}
+</script>

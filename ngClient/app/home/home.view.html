@@ -1,0 +1,54 @@
+<!-- nav -->
+<div navigation></div>
+
+ <div class="container-fluid" style=" margin-top: 8%;color:black">
+
+
+    
+    <div class="row">
+       <h1>My Profile</h1>
+      <div class="col-sm-8">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+			
+          </div>
+          <div class="chart-stage">
+              
+         
+		<table class="table table-hover">
+			
+  <tbody>
+
+  
+    <tr>
+      <th scope="row">Name</th>
+      <td>Email</td>
+      <td >Password</td>
+    </tr>
+    <tr>
+      <th scope="row">{{myDetails.name}}</th>
+      <td>{{myDetails.email}}</td>
+      <td >{{myDetails.password}}</td>
+
+    </tr>
+ 
+  </tbody>
+</table>
+        
+
+          </div>
+          <div class="chart-notes">
+		  Created at: {{myDetails.created_at  | date:'MM/dd/yyyy @ h:mma' }}
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- always display cal bottom right cornoer -->
+<div id="bottomrightdi">
+	<calculator></calculator>
+</div>
+
+<script src="//keen_web_static.s3.amazonaws.com/js/bootstrap.min.js?v=1224" type="text/javascript"></script>

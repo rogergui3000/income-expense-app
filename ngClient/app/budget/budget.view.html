@@ -1,0 +1,111 @@
+<!-- nav -->
+<div navigation></div>
+
+ <div class="container-fluid" style=" margin-top: 8%;color:black; overflow:scoll">
+
+    <div class="row">
+       <h1>My Budget</h1>
+      <div class="col-sm-8">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+		{{ today | date:"MM/dd/yyyy"  }}
+		  <ul class="nav nav-tabs">
+		    <li role="presentation" class="active"><a >Add to Budget</a></li>
+		   
+		  </ul>
+		  
+		
+		  
+          </div>
+          <div class="chart-stage">
+              
+         
+		<table class="table table-hover">
+			<caption >General </caption>
+			
+  <thead>
+    <tr>
+      <th >Category</th>
+	 <th></th>
+	 <th>Budget Amount</th>
+	 <th>Spent/Deposited	</th>
+	 <th>= Remaining</th>
+    </tr>
+  </thead>
+  <tbody ng-init="account.total = {}; newbudget">
+ 
+    <tr  ng-repeat="accoun in account">
+	 
+      <th>{{accoun.catname}}</th>
+      <th colspan='1'></th>
+      <td ><form ng-submit="submitForm($index)" name="form-{{$index}}">
+              <input  placeholder="&euro; {{accoun.amount  | currency:''}}" type="text" ng-model="accoun.amount" />
+   
+              <button  type="submit" class="noneb btn btn-success btn-sm"  >Save</button>
+          </form></td>
+	 <td ng-init="account.total.amount = account.total.amount + accoun.total_expense">{{accoun.total_expense  | currency:""}}</td>
+	 <td >{{accoun.amount - accoun.total_expense | currency:""}}</td>
+	 <td ><button type="submit" class="noneb btn btn-primary btn-sm" >View</button></td>
+	
+    </tr>
+    
+    <tr  ng-repeat="accoun in Details" >
+
+      <th>{{accoun.catname}}</th>
+      <th colspan='1'></th>
+      <td ><!--<input type="number" ng-model="accoun.amount" placeholder="&euro; {{accoun.amount  | currency:''}}" id="" required>-->
+      <form ng-submit="submitForm2($index)" name="form-{{$index}}">
+              <input  placeholder="&euro; {{accoun.amount  | currency:''}}" type="text" ng-model="accoun.amount" />
+   
+              <button  type="submit" class="noneb btn btn-success btn-sm"  >Save</button>
+          </form>
+	 
+	 </td>
+	 <td >{{accoun.total_expense | currency:""}}</td>
+	 <td ng-init="account.total.amount = account.total.amount + accoun.total_expense">{{accoun.amount - accoun.total_expense | currency:"" }}</td>
+	 
+	 
+	 <td ><button class="noneb btn-primary btn btn-sm">View</button></td>
+	  
+    </tr>
+    
+    <tr>
+      <td >General Total:	</td>
+	 <td colspan='2'>{{account.total.amount | currency:"&euro;"}}</span>
+      <td ></td>
+	 <td ></td>
+	 <td ></td>
+
+    </tr>
+
+  </tbody>
+</table>
+        
+	   
+	 
+	    
+	    
+
+          </div>
+          <div class="chart-notes">
+
+
+		 Spent/Deposit Total:{{account.total.amount | currency:"&euro;"}}
+            
+          </div>
+        </div>
+      </div>
+	 
+
+
+
+
+<!-- always display cal bottom right cornoer -->
+<div id="bottomrightdi">
+	<calculator></calculator>
+</div>
+
+              
+			 
+
+<script src="//keen_web_static.s3.amazonaws.com/js/bootstrap.min.js?v=1224" type="text/javascript"></script>
